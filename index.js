@@ -17,8 +17,7 @@ app.get('/', async (req, res) => {
   console.log('servants: ', servants)
   console.log('informant: ', informant)
   if (servants) {
-    const servants = servants.split(',')
-    const buttons = servants.map(
+    const buttons = servants.split(',').map(
       (servant) => `<button onClick="fetchServant('${servant}')">Summon servant at ${servant}</button><br>`
     )
     const tpl = fs.readFileSync(`${__dirname}/index.html`, 'utf8')
