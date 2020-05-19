@@ -1,0 +1,27 @@
+<html>
+  <style>
+    body {font-family: Verdana, Geneva, Tahoma, sans-serif;}
+  </style>
+  <head>
+    <script>
+        function report(text, divId) {
+          var el = document.getElementById(divId), brNode = document.createElement('br'), textNode = document.createTextNode(text)
+          el.appendChild(textNode)
+          el.appendChild(brNode)
+        }
+        function fetchServant(servant) {
+          fetch(servant)
+            .then(r => r.text()).then(text => report(text, 'info'))
+            .catch(e => console.error(e) && report(e, 'error'))
+          }
+    </script>
+  </head>
+  <body>
+    <h1>Hello ##TARGET!</h1>
+    <p>I am at version: ##VERSION</p>
+    <p>Where are my servants at?</p>
+    ##BUTTONS
+    <div id="info" style="background-color: green; color: white;"></div>
+    <div id="error" style="background-color: red; color: white;"></div>
+  </body>
+</html>

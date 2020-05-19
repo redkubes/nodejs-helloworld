@@ -1,0 +1,15 @@
+{
+  "name": "nodejs-helloworld",
+  "version": "1.2.10",
+  "description": "Simple hello world sample in Node",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --max-http-header-size=16000 index.js"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "express": "^4.16.4"
+  }
+}
