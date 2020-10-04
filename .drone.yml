@@ -40,6 +40,8 @@ steps:
       event:
         - push
         - pull_request
+    environment:
+      HOME: /tmp
 
   - name: deploy-tag
     image: plugins/docker
