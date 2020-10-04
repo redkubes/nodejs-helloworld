@@ -25,7 +25,6 @@ steps:
   - name: build-test-push
     image: plugins/docker
     settings:
-      registry: otomi
       repo: otomi/nodejs-helloworld
       username:
         from_secret: REGISTRY_USERNAME
@@ -47,8 +46,7 @@ steps:
     image: plugins/docker
     settings:
       autotag: true
-      registry: reg.dev.idiotz.nl
-      repo: reg.dev.idiotz.nl/api
+      repo: otomi/nodejs-helloworld
       username:
         from_secret: REGISTRY_USERNAME
       password:
