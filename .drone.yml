@@ -1,0 +1,75 @@
+# Simple pipeline to accomodate feature branches being merged in master, generating a golden image
+# that is later promoted by tagging accordingly. Example:
+#
+# - staging: reg.dev.idiotz.nl/stg-api:0.1.2
+# - stg: reg.dev.idiotz.nl/api:stg-0.1.2
+# - prod: reg.dev.idiotz.nl/api:0.1.2
+#
+# the pipeline first builds the Dockerfile's ci stage and caches that for parallel test runs
+# afterwards it continues building it into final artifact from the cached ci build.
+
+kind: pipeline
+type: kubernetes
+name: default
+
+# image_pull_secrets:
+#   - regcred-api
+
+# trigger:
+#   branch:
+#     - master
+#   event:
+#     - push
+
+steps:
+  - name: build-test-push
+    image: plugins/docker
+    settings:
+      registry: otomi
+      repo: otomi/nodejs-helloworld
+      username:
+        from_secret: REGISTRY_USERNAME
+      password:
+        from_secret: REGISTRY_PASSWORD
+      tags:
+        - ${DRONE_BRANCH}
+      cache_from:
+        - otomi/nodejs-helloworld:master
+        - otomi/nodejs-helloworld:${DRONE_BRANCH}
+    when:
+      event:
+        - push
+        - pull_request
+
+  - name: deploy-tag
+    image: plugins/docker
+    settings:
+      autotag: true
+      registry: reg.dev.idiotz.nl
+      repo: reg.dev.idiotz.nl/api
+      username:
+        from_secret: REGISTRY_USERNAME
+      password:
+        from_secret: REGISTRY_PASSWORD
+      target: prod
+      cache_from:
+        - otomi/nodejs-helloworld:master
+    when:
+      branch:
+        - master
+      event:
+        - tag
+
+  - name: slack
+    image: plugins/slack
+    settings:
+      webhook:
+        from_secret: SLACK_HOOK
+      channel: cicd-drone
+      username: Drone
+    depends_on:
+      - build-test-push
+    when:
+      status:
+        - success
+        - failure

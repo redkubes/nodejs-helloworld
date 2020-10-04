@@ -1,0 +1,35 @@
+---
+root: true
+
+parserOptions:
+  ecmaVersion: 9
+
+extends:
+  - eslint:recommended
+  - prettier
+  - plugin:import/errors
+  - plugin:import/warnings
+  - plugin:chai-friendly/recommended
+
+plugins:
+  - import
+  - prettier
+
+settings:
+  import/resolver:
+    node:
+      extensions: ['.js']
+
+env:
+  es6: true
+  browser: true
+  node: true
+  mocha: true
+
+rules:
+  import/no-extraneous-dependencies: off
+  eol-last: ['error', 'always']
+  import/extensions: off
+  no-shadow: 0
+  no-unused-vars: 0
+  prefer-destructuring: 0

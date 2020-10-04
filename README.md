@@ -8,3 +8,5 @@ When env variable `SERVANTS` is set (a comma separated list of paths to query fo
 Otherwise role 'servant' is chosen.
 
 When env variable `INFORMANT` is set (a k8s cluster service url), the servant will query it for information and add it to it's report.
+
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
