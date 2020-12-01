@@ -68,6 +68,7 @@
     "run-if-changed": "0.0.9",
     "sinon": "^9.1.0",
     "sinon-chai": "^3.5.0",
+    "standard-version": "^9.0.0",
     "supertest": "^5.0.0"
   }
 }
