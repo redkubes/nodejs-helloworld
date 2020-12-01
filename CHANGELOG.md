@@ -12,12 +12,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Others
 
+- **release:** 1.2.12 ([c7c2e7c](https://github.com/redkubes/nodejs-helloworld/commit/c7c2e7cc2525e166fd8097b738cf30a616f5efac))
 - **release:** 1.2.12 ([afa590b](https://github.com/redkubes/nodejs-helloworld/commit/afa590b0ba816dc676bc6b60759cc6bc957ab433))
 - added drone pipeline, tests, build tools as example ([b802aef](https://github.com/redkubes/nodejs-helloworld/commit/b802aef724e417010628893e911c681f5f566dd4))
-
-# Changelog
-
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 # Changelog
 
