@@ -1,51 +1,15 @@
 {
-  "name": "nodejs-helloworld",
-  "version": "1.2.12",
+  "author": "maurice.faber@redkubes.com",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "description": "Simple hello world sample in Node",
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "post-checkout": "run-if-changed",
-      "post-commit": "run-if-changed",
-      "post-merge": "run-if-changed",
-      "post-rewrite": "run-if-changed",
-      "pre-commit": "npm run husky:pre-commit"
-    }
-  },
-  "license": "Apache-2.0",
-  "lint-staged": {
-    "*.{json,md,yml,yaml}": [
-      "prettier --write"
-    ],
-    "*.{js}": [
-      "eslint --fix"
-    ]
-  },
-  "main": "index.js",
-  "run-if-changed": {
-    "package-lock.json": "npm install --prefer-offline --no-audit"
-  },
-  "scripts": {
-    "cz": "git-cz",
-    "cz:retry": "git-cz --retry",
-    "husky:lint-staged": "lint-staged",
-    "husky:pre-commit": "run-p lint husky:lint-staged",
-    "lint": "eslint --ext js .",
-    "lint:fix": "eslint --ext js .",
-    "release": "standard-version",
-    "start": "node --max-http-header-size=16000 index.js",
-    "test": "NODE_ENV=test mocha --timeout 25000 test.js --exit"
-  },
-  "author": "maurice.faber@redkubes.com",
   "dependencies": {
     "axios": "^0.19.2",
     "express": "^4.16.4"
   },
+  "description": "Simple hello world sample in Node",
   "devDependencies": {
     "@commitlint/config-conventional": "^11.0.0",
     "chai": "^4.2.0",
@@ -70,5 +34,42 @@
     "sinon-chai": "^3.5.0",
     "standard-version": "^9.0.0",
     "supertest": "^5.0.0"
-  }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "post-checkout": "run-if-changed",
+      "post-commit": "run-if-changed",
+      "post-merge": "run-if-changed",
+      "post-rewrite": "run-if-changed",
+      "pre-commit": "npm run husky:pre-commit"
+    }
+  },
+  "license": "Apache-2.0",
+  "lint-staged": {
+    "*.{json,md,yml,yaml}": [
+      "prettier --write"
+    ],
+    "*.{js}": [
+      "eslint --fix"
+    ]
+  },
+  "main": "index.js",
+  "name": "nodejs-helloworld",
+  "private": true,
+  "run-if-changed": {
+    "package-lock.json": "npm install --prefer-offline --no-audit"
+  },
+  "scripts": {
+    "cz": "git-cz",
+    "cz:retry": "git-cz --retry",
+    "husky:lint-staged": "lint-staged",
+    "husky:pre-commit": "run-p lint husky:lint-staged",
+    "lint": "eslint --ext js .",
+    "lint:fix": "eslint --ext js .",
+    "release": "standard-version",
+    "start": "node --max-http-header-size=16000 index.js",
+    "test": "NODE_ENV=test mocha --timeout 25000 test.js --exit"
+  },
+  "version": "1.2.11"
 }

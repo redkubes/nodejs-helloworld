@@ -55,8 +55,6 @@ steps:
       cache_from:
         - otomi/nodejs-helloworld:master
     when:
-      branch:
-        - master
       event:
         - tag
 
