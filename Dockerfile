@@ -1,6 +1,6 @@
 # Use the official lightweight Node.js image.
 # https://hub.docker.com/_/node
-FROM node:14-slim as ci
+FROM node:17-alpine3.14 as ci
 
 # Create and change to the app directory.
 WORKDIR /usr/src/app
@@ -16,7 +16,7 @@ COPY . ./
 
 RUN npm test
 
-FROM node:14-slim as prod
+FROM node:17-alpine3.14 as prod
 
 COPY package*.json ./
 
