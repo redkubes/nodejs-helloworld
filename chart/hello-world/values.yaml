@@ -3,10 +3,10 @@
 # Declare variables to be passed into your templates.
 replicaCount: 1
 image:
-  repository: harbor.ota.n1-otomi.net/team-demo/hello-world
+  repository: otomi/nodejs-helloworld
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: master
+  tag: v1.2.13
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
