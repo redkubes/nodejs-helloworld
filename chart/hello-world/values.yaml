@@ -6,7 +6,7 @@ image:
   repository: otomi/nodejs-helloworld
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: v1.2.13
+  # tag: v1.2.13
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
@@ -66,3 +66,6 @@ autoscaling:
 nodeSelector: {}
 tolerations: []
 affinity: {}
+
+# key > value pairs for env
+env: {}
