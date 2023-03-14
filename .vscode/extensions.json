@@ -6,6 +6,7 @@
     "eamodio.gitlens",
     "esbenp.prettier-vscode",
     "hbenl.vscode-mocha-test-adapter",
+    "ms-kubernetes-tools.vscode-kubernetes-tools",
     "pascalreitermann93.vscode-yaml-sort",
     "quicktype.quicktype",
     "redhat.vscode-yaml",

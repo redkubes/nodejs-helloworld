@@ -1,1 +1,4 @@
 .history/
+/chart*/
+!^/chart*/*.{yaml | md}
+CHANGELOG.md

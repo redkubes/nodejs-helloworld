@@ -5,10 +5,8 @@
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "editor.formatOnPaste": false,
   "editor.formatOnSave": true,
-  "eslint.alwaysShowStatus": true,
   "eslint.enable": true,
   "eslint.validate": ["javascript"],
-  "tslint.enable": false,
   "yaml.format.enable": false,
   "mochaExplorer.files": "test.js",
   "mochaExplorer.timeout": 20000

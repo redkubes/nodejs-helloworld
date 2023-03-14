@@ -1,1 +1,4 @@
-node_packages/
+.history
+.tmp
+*.bak
+node_modules/
